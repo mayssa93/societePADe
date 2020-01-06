@@ -1,28 +1,27 @@
 package societepade.demo;
+import org.apache.catalina.filters.CorsFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
+import org.springframework.core.Ordered;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
-import societepade.demo.config.SwaggerConfig;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 import societepade.demo.dao.AchatRepository;
 import societepade.demo.dao.ArticleRepository;
 import societepade.demo.dao.LigneAchatRepository;
 import societepade.demo.entity.Achat;
 import societepade.demo.entity.Article;
 import societepade.demo.entity.LigneAchat;
-import springfox.documentation.builders.PathSelectors;
-import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
 import java.time.LocalDate;
+import java.util.Collections;
+
 @SpringBootApplication
-@EnableSwagger2
-public class DemoApplication {
+public class DemoApplication implements CommandLineRunner{
 @Autowired
  private ArticleRepository articleRepository;
  @Autowired
@@ -32,6 +31,11 @@ public class DemoApplication {
  @Autowired
  private RepositoryRestConfiguration restConfiguration;
 public static void main(String[] args) { SpringApplication.run(DemoApplication.class, args); }
+
+ @Override
+ public void run(String... args) throws Exception {
+  restConfiguration.exposeIdsFor(Achat.class,Article.class,LigneAchat.class);
+ }
 
 /*
  @Override

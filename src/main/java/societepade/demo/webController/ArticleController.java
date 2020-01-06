@@ -1,8 +1,4 @@
 package societepade.demo.webController;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -11,11 +7,12 @@ import societepade.demo.service.ArticleService;
 import java.util.List;
 import java.util.Optional;
 @RestController
-@RequestMapping(path = "/list-articles")
+@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping(path = "/article")
 public class ArticleController {
     @Autowired
     ArticleService articleService;
-    @GetMapping(value="/")
+    @GetMapping(value="")
     public List<Article> getArticles() {
         return articleService.getArticles();
     }

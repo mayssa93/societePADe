@@ -12,7 +12,6 @@ import societepade.demo.entity.LigneAchat;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-
 @CrossOrigin("*")
 @RepositoryRestResource
 public interface LigneAchatRepository extends JpaRepository<LigneAchat,Long> {

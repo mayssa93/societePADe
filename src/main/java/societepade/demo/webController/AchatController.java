@@ -6,6 +6,7 @@ import societepade.demo.service.AchatService;
 import java.util.List;
 import java.util.Optional;
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(path = "/list-achats")
 public class AchatController {
     @Autowired

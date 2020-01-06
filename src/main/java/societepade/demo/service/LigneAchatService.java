@@ -3,15 +3,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import societepade.demo.dao.LigneAchatRepository;
 import societepade.demo.entity.LigneAchat;
+
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 @Service
 public class LigneAchatService {
     @Autowired
     LigneAchatRepository ligneAchatRepository;
-    public List getLigneAchat() {
-        return ligneAchatRepository.findAll();
-    }
+    public List<LigneAchat> getLigneAchat() {
+       return ligneAchatRepository.findAll();
+  }
     public Optional<LigneAchat> getLigneAchatById(Long achatLid) {
         return ligneAchatRepository.findById(achatLid);
     }
