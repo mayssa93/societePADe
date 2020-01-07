@@ -23,8 +23,8 @@ public class Achat implements Serializable {
     private float totalHT;
     @Column(name="remise")
     private float remise;
-    @OneToMany(mappedBy = "achat",cascade =CascadeType.ALL)
-    private List<LigneAchat> ligneAchats ;
+    /*@OneToMany(mappedBy = "achat",cascade =CascadeType.ALL)
+    private Set<LigneAchat> ligneAchats ;*/
     public Achat(LocalDate date,float totalHT,float remise) {
         this.date=date;
         this.totalHT = totalHT;

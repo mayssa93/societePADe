@@ -31,8 +31,8 @@ public class Article implements Serializable {
     private float prix_achatht;
     @Column(name="stock")
     private int stock;
-    @OneToMany(mappedBy = "article",cascade =CascadeType.ALL)
-    private List<LigneAchat> ligneAchats ;
+    /*@OneToMany(mappedBy = "article",cascade =CascadeType.ALL)
+    private Set<LigneAchat> ligneAchats ;*/
     public Article(String libel,String reference,float prix_achatht,int stock) {
         this.libel = libel;
         this.reference=reference;

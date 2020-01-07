@@ -1,5 +1,6 @@
 package societepade.demo.service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import societepade.demo.dao.LigneAchatRepository;
 import societepade.demo.entity.LigneAchat;
@@ -11,7 +12,7 @@ import java.util.Optional;
 public class LigneAchatService {
     @Autowired
     LigneAchatRepository ligneAchatRepository;
-    public List<LigneAchat> getLigneAchat() {
+    public List<LigneAchat> findAll(){
        return ligneAchatRepository.findAll();
   }
     public Optional<LigneAchat> getLigneAchatById(Long achatLid) {
